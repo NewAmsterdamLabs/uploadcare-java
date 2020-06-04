@@ -252,16 +252,17 @@ public class Client {
     }
 
     /**
-     * @param fileId  Resource UUID
+     * @param fileIdOrCdnUrl  Resource UUID or CDN URL
      * @param storage Target storage name
      * @return An object containing the results of the copy request
      */
-    public CopyFileData copyFile(String fileId, String storage) {
+    public CopyFileData copyFile(String fileIdOrCdnUrl, String storage) {
         RequestHelper requestHelper = getRequestHelper();
         HttpPost request = new HttpPost(Urls.apiFiles());
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("source", fileId));
+        nameValuePairs.add(new BasicNameValuePair("make_public", "false"));
+        nameValuePairs.add(new BasicNameValuePair("source", fileIdOrCdnUrl));
         if (storage != null && !storage.isEmpty()) {
             nameValuePairs.add(new BasicNameValuePair("target", storage));
         }
