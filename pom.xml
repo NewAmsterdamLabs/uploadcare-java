@@ -4,7 +4,7 @@
 
     <groupId>com.uploadcare</groupId>
     <artifactId>uploadcare</artifactId>
-    <version>3.2.0</version>
+    <version>3.2.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <parent>
